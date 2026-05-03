@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVINE SMP | Donasi</title>
+
+<link rel="icon" href="https://i.imgur.com/DDzxhvL.jpeg" type="image/png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CANVAS PARTICLES ENGINE -->
+    <canvas id="cinema-particles"></canvas>
+
+    <!-- CINEMATIC PRELOADER PRO (Ieu nu bikin JS teu error deui) -->
+    <div id="preloader">
+        <div class="loader-wrapper">
+            <div class="loader-logo">
+               <img src="https://i.imgur.com/DDzxhvL.jpeg" alt="REVINE Logo" class="glow-icon custom-logo-preloader">
+            </div>
+            <div class="loader-text-box">
+                <h1 class="loader-title">REVINE <span>SMP</span></h1>
+                <p class="loader-subtitle">Memuat<span class="dots">...</span></p>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="loading-percentage" id="loading-pct">0%</div>
+        </div>
+    </div>
+
+    <!-- GLASS HEADER NAVBAR -->
+    <header id="ultimate-header">
+        <div class="nav-glass-container">
+            <a href="index.html#hero" class="brand-logo magnetic">
+                <div class="brand-icon">
+                    <img src="https://i.imgur.com/DDzxhvL.jpeg" alt="Logo" class="custom-logo">
+                </div>
+                <div class="brand-text">REVINE <span>SMP</span></div>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html#hero" class="nav-link" data-text="Beranda">Beranda</a></li>
+                    <li><a href="index.html#status" class="nav-link" data-text="Server">Server</a></li>
+                    <li><a href="index.html#features" class="nav-link" data-text="Fitur">Fitur</a></li>
+                    <li><a href="index.html#guide" class="nav-link" data-text="Panduan">Panduan</a></li>
+                    <li><a href="shop.html" class="nav-link" data-text="Shop">Shop</a></li>
+                    <li><a href="index.html#faq" class="nav-link" data-text="FAQ">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="index.html#status" class="btn-primary magnetic">Play Now <i class="fas fa-play"></i></a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span class="bar top"></span>
+                    <span class="bar mid"></span>
+                    <span class="bar bot"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- FLOATING SOCIALS -->
+    <aside class="social-sidebar" id="social-sidebar">
+        <div class="social-line top-line"></div>
+        <div class="social-icons">
+            <a href="donate.html" class="social-icon donate magnetic" title="Donate"><i class="fas fa-hand-holding-heart"></i></a>
+            <a href="https://chat.whatsapp.com/EBjvFoRQt19BaAfBtZgxC5" target="_blank" class="social-icon wa magnetic" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.tiktok.com/@revinesmp?_r=1&_t=ZS-961gN8AXdjw" target="_blank" class="social-icon tt magnetic" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://discord.gg/eUdt9Ng6U2" target="_blank" class="social-icon dc magnetic" title="Discord"><i class="fab fa-discord"></i></a>
+        </div>
+        <div class="social-line bot-line"></div>
+        <div class="social-text">JOIN US</div>
+    </aside>
+
+    <main style="padding-top: 120px; min-height: 100vh; display: flex; align-items: center;">
+        <!-- MASTERPIECE QRIS SECTION -->
+        <section id="donate" class="section-padding" style="width: 100%;">
+            <div class="section-heading reveal-up">
+                <h4 class="sub-title" style="color: #ff4757;">SUPPORT KAMI</h4>
+                <h2 class="main-title">Donasi Server</h2>
+                <p class="heading-desc">Setiap donasi yang masuk akan 100% digunakan untuk kebutuhan server, dan pengembangan fitur baru di REVINE SMP.</p>
+                <div class="heading-line" style="background: linear-gradient(90deg, #ff4757, transparent);"></div>
+            </div>
+
+            <div class="qris-wrapper reveal-up delay-1">
+                <!-- QRIS Card 3D -->
+                <div class="qris-card glass-panel js-tilt">
+                    <div class="qris-header">
+                        <i class="fas fa-qrcode"></i>
+                        <h3>Scan QRIS Universal</h3>
+                    </div>
+                    
+                    <div class="qris-image-container">
+                        <!-- GARIS SCANNER HOLOGRAM -->
+                        <div class="hologram-scanner"></div>
+                        
+                        <!-- GANTI SRC IEU KU LINK GAMBAR QRIS MANEH -->
+                        <img src="https://i.imgur.com/7KdpncY.jpeg" alt="QRIS Revine SMP" class="qris-img">
+                    </div>
+
+                    <div class="qris-footer">
+                        <div class="payment-logos">
+                            <i class="fas fa-wallet" title="All E-Wallet"></i>
+                            <i class="fas fa-university" title="All Bank"></i>
+                            <i class="fas fa-mobile-alt" title="M-Banking"></i>
+                        </div>
+                        <p>Support semua M-Banking & E-Wallet (Gopay, Dana, OVO, ShopeePay, dll).</p>
+                        <h4 class="qris-name">a.n REVINE STORE</h4>
+                    </div>
+                </div>
+
+                <!-- Info Card -->
+                <div class="donate-info glass-panel reveal-up delay-2">
+                    <h3><i class="fas fa-heart" style="color: #ff4757;"></i> Terima Kasih!</h3>
+                    <p>Terima kasih banyak atas dukungan dan kebaikan hati Anda melalui donasi ini.
+Setiap kontribusi yang diberikan sangat berarti bagi perkembangan REVINE SMP.
+Semoga kebaikan Anda dibalas dengan berkah yang melimpah dan kebahagiaan.
+Mari terus berbagi dan menebar manfaat positif untuk sesama!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="back-to-top" class="back-to-top-btn magnetic" title="Kembali ke atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- FOOTER -->
+    <footer class="ultimate-footer">
+        <div class="footer-particles" id="footer-particles"></div>
+        <div class="footer-content">
+            <div class="footer-col brand-col">
+                <div class="f-brand">REVINE <span>SMP</span></div>
+                <p class="f-desc">Komunitas survival Minecraft terbuka untuk semua player. Mulai petualangan epikmu hari ini, bangun sejarahmu, dan raih kejayaan di dunia tanpa batas kami.</p>
+            </div>
+            
+            <div class="footer-col links-col">
+                <h3>Kategori</h3>
+                <ul>
+                    <li><a href="index.html#hero">Beranda</a></li>
+                    <li><a href="index.html#status">Server Info</a></li>
+                    <li><a href="index.html#features">Server Feature</a></li>
+                    <li><a href="shop.html">Rank Shop</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col support-col">
+                <h3>Bantuan & Support</h3>
+                <ul>
+                    <li><a href="#">Rules</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="https://discord.gg/eUdt9Ng6U2" target="_blank">Discord Server</a></li>
+                    <li><a href="https://wa.me/+6287870963655" target="_blank"> Hubungi Staff</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="f-line"></div>
+            <p>&copy; 2026 <strong>REVINE SMP</strong>. All Right Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

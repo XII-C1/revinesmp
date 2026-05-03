@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVINE SMP | Checkout</title>
+
+<link rel="icon" href="https://i.imgur.com/DDzxhvL.jpeg" type="image/png">
+
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Intl Tel Input CSS (Jang Bendera Negara) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+    <!-- Link CSS Utama -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="cinema-particles"></canvas>
+
+    <!-- CUSTOM POPUP ALERT (Jang Info Diskon) -->
+    <div id="ultra-popup" class="ultra-popup-overlay">
+        <div class="ultra-popup-box">
+            <div id="popup-icon" class="popup-icon"></div>
+            <h3 id="popup-title">Pesan</h3>
+            <p id="popup-desc">Deskripsi pesan ada di sini.</p>
+            <button onclick="closePopup()" class="btn-popup-close">Tutup</button>
+        </div>
+    </div>
+
+    <!-- MODAL KONFIRMASI PESANAN -->
+    <div id="confirm-modal" class="confirm-modal-overlay">
+        <div class="confirm-modal-box">
+            <div class="confirm-icon"><i class="fas fa-check-circle"></i></div>
+            <h3>Buat Pesanan</h3>
+            <p class="confirm-subtitle">Pastikan data akun Kamu dan produk yang Kamu pilih valid dan sesuai.</p>
+            
+            <div class="confirm-details-box">
+                <div class="detail-row"><span>Item</span><strong id="modal-item">MEMUAT...</strong></div>
+                <div class="detail-row"><span>Product</span><strong>Revine SMP - Rank</strong></div>
+                <div class="detail-row"><span>Platform</span><strong id="modal-platform">MEMUAT...</strong></div>
+                <div class="detail-row"><span>Gamertag</span><strong id="modal-gamertag">MEMUAT...</strong></div>
+                <div class="detail-row"><span>Payment</span><strong id="modal-payment">MEMUAT...</strong></div>
+                <div class="detail-row" style="border-top: 1px dashed rgba(255,255,255,0.1); margin-top: 10px; padding-top: 10px;">
+                    <span>Total Tagihan</span><strong id="modal-total" style="color: var(--secondary); font-size: 1.2rem;">Rp 0</strong>
+                </div>
+            </div>
+
+            <label class="tnc-checkbox-container">
+                <input type="checkbox" id="tnc-checkbox">
+                <span class="checkmark"></span>
+                <p>Dengan mengklik <strong>Pesan Sekarang!</strong>, kamu sudah menyetujui <a href="#">Syarat & Ketentuan</a> yang berlaku.</p>
+            </label>
+
+            <div class="confirm-actions">
+                <!-- Tombol disumputkeun, bakal timbul mun S&K di ceklis -->
+                <button type="button" class="btn-pesan" id="btn-final-pesan" style="display: none;">Pesan Sekarang!</button>
+                <button type="button" class="btn-batal" onclick="closeConfirmModal()">Batalkan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-wrapper">
+            <div class="loader-logo">
+               <img src="https://i.imgur.com/DDzxhvL.jpeg" alt="REVINE Logo" class="glow-icon custom-logo-preloader">
+            </div>
+            <div class="loader-text-box">
+                <h1 class="loader-title">REVINE <span>SMP</span></h1>
+                <p class="loader-subtitle">Memuat<span class="dots">...</span></p>
+            </div>
+            <div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
+            <div class="loading-percentage" id="loading-pct">0%</div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header id="ultimate-header" class="scrolled"> 
+        <div class="nav-glass-container">
+            <a href="index.html" class="brand-logo magnetic">
+                <div class="brand-icon"><img src="https://i.imgur.com/DDzxhvL.jpeg" alt="Logo" class="custom-logo"></div>
+                <div class="brand-text">REVINE <span>SMP</span></div>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="shop.html" class="nav-link highlight-link" data-text="Kembali" style="color: var(--gold);"><i class="fas fa-arrow-left"></i> Kembali ke Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 120px; padding-bottom: 80px; min-height: 100vh;">
+        <div class="checkout-container">
+            <div class="checkout-split">
+                
+                <!-- KOLOM KIRI (HARGA) -->
+                <div class="checkout-left glass-panel reveal-right">
+                    <div class="checkout-header-alt">
+                        <div class="step-badge">1</div>
+                        <div>
+                            <h2>Pilih Item</h2>
+                            <p>Rank: <strong id="display-rank-name" class="rank-highlight">MEMUAT...</strong></p>
+                        </div>
+                    </div>
+                    <div id="price-options-container" class="price-grid-options"></div>
+                </div>
+
+                <!-- KOLOM KANAN (FORM) -->
+                <div class="checkout-right glass-panel reveal-up delay-1">
+                    <div class="checkout-header-alt">
+                        <div class="step-badge">2</div>
+                        <div>
+                            <h2>Detail Pembeli</h2>
+                            <p>Isi data akun & kontak Anda.</p>
+                        </div>
+                    </div>
+
+                    <form id="checkout-form" class="checkout-form">
+                        <div class="form-group">
+                            <label>Platform</label>
+                            <div class="radio-grid">
+                                <label class="radio-label">
+                                    <input type="radio" name="edition" value="java" checked>
+                                    <div class="radio-custom"><i class="fas fa-desktop"></i> Java Edition</div>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="edition" value="bedrock">
+                                    <div class="radio-custom"><i class="fas fa-mobile-alt"></i> Bedrock (MCPE)</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gamertag / Username Minecraft</label>
+                            <div class="input-with-prefix">
+                                <span id="bedrock-prefix" class="prefix-dot" style="display: none;">.</span>
+                                <input type="text" id="gamertag" placeholder="Ketik Username..." required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group w-50">
+                                <label>Nama Panggilan</label>
+                                <input type="text" id="real-name" placeholder="Nama..." required>
+                            </div>
+                            <div class="form-group w-50">
+                                <label>No. WhatsApp</label>
+                                <input type="tel" id="wa-number" placeholder="8123456..." required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Metode Pembayaran</label>
+                            <div class="select-wrapper">
+                                <select id="payment-method" required>
+                                    <option value="Qris">QRIS (All Payment)</option>
+                                    <option value="Dana">DANA</option>
+                                    <option value="Gopay">GoPay</option>
+                                    <option value="Shopee-pay">ShopeePay</option>
+                                    <option value="Sea Bank">SeaBank</option>
+                                </select>
+                                <i class="fas fa-chevron-down select-icon"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Kode Voucher (Opsional)</label>
+                            <div class="discount-wrapper">
+                                <input type="text" id="discount-code" placeholder="Punya kode promo?">
+                                <button type="button" id="btn-apply-discount" class="btn-discount">Gunakan</button>
+                            </div>
+                        </div>
+
+                        <div class="checkout-footer">
+                            <div class="total-box">
+                                <span>Total Pembayaran:</span>
+                                <h3 id="total-display">Rp 0</h3>
+                            </div>
+                            <button type="submit" class="btn-buy magnetic" style="width: 100%; border: none; font-size: 1.1rem; padding: 18px;">
+                                Lanjut ke Pembayaran
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- SCRIPTS LIBRARY EKSTERNAL -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <!-- FIREBASE LIBRARY (Wajib aya jang Diskon) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    
+    <!-- FILE JS URANG -->
+    <script src="script.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>

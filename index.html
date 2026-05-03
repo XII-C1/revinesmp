@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVINE SMP</title>
+
+<link rel="icon" href="https://i.imgur.com/DDzxhvL.jpeg" type="image/png">
+
+    <!-- Font Awesome untuk Ikon Premium -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CANVAS PARTICLES ENGINE (Background Animasi Murni JS) -->
+    <canvas id="cinema-particles"></canvas>
+
+    <!-- CINEMATIC PRELOADER PRO -->
+    <div id="preloader">
+        <div class="loader-wrapper">
+            <div class="loader-logo">
+               <img src="https://i.imgur.com/DDzxhvL.jpeg" alt="REVINE Logo" class="glow-icon custom-logo-preloader">
+            </div>
+            <div class="loader-text-box">
+                <h1 class="loader-title">REVINE <span>SMP</span></h1>
+                <p class="loader-subtitle">Memuat<span class="dots">...</span></p>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="loading-percentage" id="loading-pct">0%</div>
+        </div>
+    </div>
+
+    <!-- GLASS HEADER NAVBAR (Sticky & Rapet Ke Atas) -->
+    <header id="ultimate-header">
+        <div class="nav-glass-container">
+            <a href="#hero" class="brand-logo magnetic">
+                <img src="https://i.imgur.com/DDzxhvL.jpeg" alt="Logo" class="custom-logo"                
+                </div>
+                  
+                <div class="brand-text">REVINE <span>SMP</span></div>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link" data-text="Beranda">Beranda</a></li>
+                    <li><a href="#status" class="nav-link" data-text="Server">Server</a></li>
+                    <li><a href="#features" class="nav-link" data-text="Fitur">Fitur</a></li>
+                    <li><a href="#guide" class="nav-link" data-text="Panduan">Panduan</a></li>
+                    <!-- Link Shop disiapkan untuk html terpisah -->
+                    <li><a href="shop.html" class="nav-link highlight-link" data-text="Shop">Shop</a></li>
+                    <li><a href="#faq" class="nav-link" data-text="FAQ">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="#status" class="btn-primary magnetic">Play Now <i class="fas fa-play"></i></a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span class="bar top"></span>
+                    <span class="bar mid"></span>
+                    <span class="bar bot"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- FLOATING SOCIALS (Responsif: Kiri di Desktop, Bawah di HP) -->
+    <aside class="social-sidebar" id="social-sidebar">
+        <div class="social-line top-line"></div>
+        <div class="social-icons">
+          <!-- Tombol Donate -->
+            <a href="donate.html" class="social-icon donate magnetic" title="Donate"><i class="fas fa-hand-holding-heart"></i></a>
+            <a href="https://chat.whatsapp.com/EBjvFoRQt19BaAfBtZgxC5" target="_blank" class="social-icon wa magnetic" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.tiktok.com/@revinesmp?_r=1&_t=ZS-961gN8AXdjw" target="_blank" class="social-icon tt magnetic" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://discord.gg/eUdt9Ng6U2" target="_blank" class="social-icon dc magnetic" title="Discord"><i class="fab fa-discord"></i></a>
+        </div>
+        <div class="social-line bot-line"></div>
+        <div class="social-text">JOIN US</div>
+    </aside>
+
+    <main>
+        <!-- HERO SECTION PRO -->
+        <section id="hero" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="badge-wrapper reveal-up">
+                        <div class="status-badge" id="hero-badge">
+                            <span class="ping-dot"></span> Checking Status...
+                        </div>
+                    </div>
+                    <h1 class="hero-title reveal-up delay-1">
+                        welcome to<br>
+                        <span class="text-gradient">revine smp</span>
+                    </h1>
+                    <p class="hero-desc reveal-up delay-2">
+                        Official Revine smp website. Masuk ke dalam ekosistem Revine community dengan berbagai beragam interaktif. Bangun rumahmu, lindungi tanahmu, dan jadilah legenda di REVINE SMP.
+                    </p>
+                    <div class="hero-buttons reveal-up delay-3">
+                        <a href="#status" class="btn-glow magnetic">
+                            Mulai Bermain <i class="fas fa-rocket"></i>
+                            <div class="btn-glow-bg"></div>
+                        </a>
+                        <a href="#features" class="btn-outline magnetic">Eksplorasi Fitur</a>
+                    </div>
+                    
+                    <div class="hero-stats reveal-up delay-4">
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="24">0</h3>
+                            <p>jam/online</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="99">0</h3>
+                            <p>Uptime %</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="0">0</h3>
+                            <p>Lag Pings</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual reveal-right delay-2">
+                    <div class="crystal-container js-tilt">
+                        <div class="crystal-core">
+                            <i class="fas fa-gem core-icon"></i>
+                        </div>
+                        <div class="orbit orbit-1"><div class="satellite sat-1"></div></div>
+                        <div class="orbit orbit-2"><div class="satellite sat-2"></div></div>
+                        <div class="orbit orbit-3"><div class="satellite sat-3"></div></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator magnetic">
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+                <span class="arrow-down"><i class="fas fa-chevron-down"></i></span>
+            </div>
+        </section>
+
+        <!-- SERVER STATUS SECTION (MANUAL OVERRIDE VIA JS) -->
+        <section id="status" class="section-padding">
+            <div class="section-heading reveal-up">
+                <h4 class="sub-title">KONEKSI SERVER</h4>
+                <h2 class="main-title">SERVER INFO</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="status-grid">
+               <!-- Live Panel -->
+<div class="status-card glass-panel reveal-up hover-glow" id="main-status-card">
+    <div class="card-icon-wrapper status-icon-bg"><i class="fas fa-satellite-dish" id="status-icon"></i></div>
+    <div class="card-content">
+        <h3>Status Server</h3>
+        <div class="live-status-container" id="server-live-status">
+            <div class="pulse-ring" id="pulse-indicator"></div>
+            <div class="status-details">
+                <h4 class="status-text-val" id="status-text-val">MEMUAT...</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Java IP -->
+                <div class="status-card glass-panel reveal-up delay-1 hover-glow copy-ip-btn" data-ip="play.revinesmp.com">
+                    <div class="card-icon-wrapper blue"><i class="fas fa-desktop"></i></div>
+                    <div class="card-content">
+                        <h3>IP</h3>
+                        <div class="ip-display">
+                            <span class="ip-text">NOT YET REALESE<span>
+                            <div class="copy-badge"><i class="fas fa-copy"></i></div>
+                        </div>
+                        <p class="ip-hint">Versi: latest</p>
+                    </div>
+                </div>
+
+                <!-- Bedrock Port -->
+                <div class="status-card glass-panel reveal-up delay-2 hover-glow copy-ip-btn" data-ip="19132">
+                    <div class="card-icon-wrapper purple"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="card-content">
+                        <h3>Port</h3>
+                        <div class="ip-display">
+                            <span class="ip-text">NOT YET REALESE</span>
+                            <div class="copy-badge"><i class="fas fa-copy"></i></div>
+                        </div>
+                        <p class="ip-hint">Default Port</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES BENTO GRID PRO -->
+        <section id="features" class="section-padding section-alt-bg">
+            <div class="section-heading reveal-up">
+                <h4 class="sub-title">EKSKLUSIF</h4>
+                <h2 class="main-title">SERVER FEATURE</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="bento-layout">
+                <div class="bento-box bento-xl glass-panel js-tilt reveal-up">
+                    <div class="bento-inner">
+                        <div class="box-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Land Protection</h3>
+                        <p>Bangun kerajaanmu tanpa rasa takut. Sistem proteksi lahan di server ini menggunakan sistem yang mudah dipahami. Amankan rumah, chest, dan ternakmu dari <strong>griefer</strong> secara otomatis dan permanen. Ketenangan pikiran 100%.</p>
+                        <div class="bg-watermark"><i class="fas fa-shield-alt"></i></div>
+                    </div>
+                </div>
+                
+                <div class="bento-box glass-panel js-tilt reveal-up delay-1">
+                    <div class="bento-inner">
+                        <div class="box-icon gold"><i class="fas fa-crown"></i></div>
+                        <h3>Rank</h3>
+                        <p>Dapatkan identitas eksklusif dengan prefix warna-warni yang menonjol di dalam chat global. Nikmati akses prioritas di server, <strong>dan mendukung revine smp dengan cara membeli rank.</strong> Buka berbagai kit spesial serta command unik yang mempermudah petualanganmu setiap hari.</p>
+                    </div>
+                </div>
+
+                <div class="bento-box glass-panel js-tilt reveal-up delay-2">
+                    <div class="bento-inner">
+                        <div class="box-icon purple"><i class="fas fa-house-user"></i></div>
+                        <h3>Multi-Sethome</h3>
+                        <p>Jangan takut tersesat. Tandai berbagai titik penting di dunia dan lakukan teleportasi kilat kapan saja.</p>
+                    </div>
+                </div>
+
+                <div class="bento-box glass-panel js-tilt reveal-up">
+                    <div class="bento-inner">
+                        <div class="box-icon cyan"><i class="fas fa-bolt"></i></div>
+                        <h3>TPA System</h3>
+                        <p>Mabar makin gampang. Kirim <strong>request</strong> teleportasi ke temanmu secara langsung dengan aman dan cepat.</p>
+                    </div>
+                </div>
+
+                <div class="bento-box glass-panel js-tilt reveal-up delay-1">
+                    <div class="bento-inner">
+                        <div class="box-icon pink"><i class="fas fa-chair"></i></div>
+                        <h3>Sit & Lay Down</h3>
+                        <p>Duduk di atas tangga, slab, atau rebahan di rumput mana saja tanpa mod tambahan.</p>
+                    </div>
+                </div>
+
+                <div class="bento-box bento-wide glass-panel js-tilt reveal-up delay-2">
+                    <div class="bento-inner">
+                        <div class="box-icon green"><i class="fas fa-users"></i></div>
+                        <h3>Komunitas Solid & Bebas Toxic</h3>
+                        <p>Kami memiliki sistem anti-cheat ketat dan staff aktif yang siap menjaga lingkungan bermain tetap positif, aman, dan menyenangkan bagi semua kalangan umur.</p>
+                        <div class="bg-watermark"><i class="fas fa-users"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW TO JOIN (TABS SYSTEM) -->
+        <section id="guide" class="section-padding">
+            <div class="section-heading reveal-up">
+                <h4 class="sub-title">TUTORIAL</h4>
+                <h2 class="main-title">Cara Bergabung</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="tabs-container reveal-up delay-1">
+                <div class="tabs-header">
+                    <button class="tab-btn active magnetic" data-tab="java">
+                        <i class="fas fa-desktop"></i> Java Edition
+                    </button>
+                    <button class="tab-btn magnetic" data-tab="bedrock">
+                        <i class="fas fa-mobile-alt"></i> Bedrock Edition
+                    </button>
+                </div>
+
+                <div class="tabs-content">
+                    <!-- Tab Java -->
+                    <div class="tab-pane active" id="tab-java">
+                        <div class="steps-grid">
+                            <div class="step-card glass-panel">
+                                <div class="step-number">01</div>
+                                <h4>Buka Multiplayer</h4>
+                                <p>Jalankan Minecraft Java (Versi latest), klik menu <strong>Multiplayer</strong>, lalu pilih <strong>Add Server</strong>.</p>
+                            </div>
+                            <div class="step-card glass-panel">
+                                <div class="step-number">02</div>
+                                <h4>Masukkan IP</h4>
+                                <p>Isi Server Address dengan <strong>NOT YET REALESE</strong>. Klik Done.</p>
+                            </div>
+                            <div class="step-card glass-panel">
+                                <div class="step-number">03</div>
+                                <h4>Register & Login</h4>
+                                <p>Masuk ke server, amankan akunmu dengan mengetik <code>/register [password] [password]</code> di chat.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Bedrock -->
+                    <div class="tab-pane" id="tab-bedrock">
+                        <div class="steps-grid">
+                            <div class="step-card glass-panel">
+                                <div class="step-number">01</div>
+                                <h4>Menu Server</h4>
+                                <p>Buka Minecraft Bedrock (HP/Console), masuk ke tab <strong>Servers</strong>, scroll ke bawah, klik <strong>Add Server</strong>.</p>
+                            </div>
+                            <div class="step-card glass-panel">
+                                <div class="step-number">02</div>
+                                <h4>Isi Data Server</h4>
+                                <p>Server Name: Revine.<br>Server Address: <strong>NOT YET REALESE</strong>.<br>Port: <strong>NOT YET REALESE</strong>.</p>
+                            </div>
+                            <div class="step-card glass-panel">
+                                <div class="step-number">03</div>
+                                <h4>Login Akun</h4>
+                                <p>Sama seperti Java, amankan akunmu dengan perintah <code>/register</code> saat pertama kali masuk ke dalam lobi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION (ACCORDION) -->
+        <section id="faq" class="section-padding section-alt-bg">
+            <div class="section-heading reveal-up">
+                <h4 class="sub-title">PERTANYAAN</h4>
+                <h2 class="main-title">F.A.Q</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="faq-wrapper reveal-up delay-1">
+                <div class="accordion-item glass-panel">
+                    <button class="accordion-header">
+                        <span class="acc-title">Apakah server ini buka 24 Jam?</span>
+                        <span class="acc-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Ya! REVINE SMP beroperasi 24 jam penuh setiap hari. Kami menggunakan mesin Dedicated Server berkinerja tinggi untuk memastikan tidak ada <strong>downtime</strong> saat kamu sedang asyik bermain, kecuali saat ada jadwal <strong>maintenance</strong> rutin.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item glass-panel">
+                    <button class="accordion-header">
+                        <span class="acc-title">Bagaimana jika tanah saya di-grief/dihancurkan orang?</span>
+                        <span class="acc-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Pastikan kamu menggunakan fitur Claim Land. Jika sudah di-claim, tidak ada pemain lain yang bisa menghancurkannya. Jika terbukti ada pencurian akibat <strong>bug</strong>, laporkan ke <strong>Staff</strong> dengan bukti, pelaku akan di-banned dan barangmu dikembalikan.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item glass-panel">
+                    <button class="accordion-header">
+                        <span class="acc-title">Apakah boleh pakai Mod atau Texture Pack?</span>
+                        <span class="acc-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Texture pack untuk memperindah visual (Shaders, Optifine) sangat diperbolehkan. NAMUN, modifikasi yang memberikan keuntungan curang seperti <strong>X-Ray, Fly Hack, Kill Aura, atau Auto-Clicker</strong> dilarang keras dan berujung Ban Hardware Permanen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="back-to-top" class="back-to-top-btn magnetic" title="Kembali ke atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- CINEMATIC FOOTER -->
+    <footer class="ultimate-footer">
+        <div class="footer-particles" id="footer-particles"></div>
+        <div class="footer-content">
+            <div class="footer-col brand-col">
+                <div class="f-brand">REVINE <span>SMP</span></div>
+                <p class="f-desc">Komunitas survival Minecraft terbuka untuk semua player. Mulai petualangan epikmu hari ini, bangun sejarahmu, dan raih kejayaan di dunia tanpa batas kami.</p>
+            </div>
+            
+            <div class="footer-col links-col">
+                <h3>Kategori</h3>
+                <ul>
+                    <li><a href="#hero">Beranda</a></li>
+                    <li><a href="#status">Server Info</a></li>
+                    <li><a href="#features">Server Feature</a></li>
+                    <li><a href="shop.html">Rank Shop</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col support-col">
+                <h3>Bantuan & Support</h3>
+                <ul>
+                    <li><a href="#">Rules</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="https://discord.gg/eUdt9Ng6U2" target="_blank">Discord Server</a></li>
+                    <li><a href="https://wa.me/+6287870963655" target="_blank"> Hubungi Staff</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="f-line"></div>
+            <p>&copy; 2026 <strong>REVINE SMP</strong>. All Right Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
